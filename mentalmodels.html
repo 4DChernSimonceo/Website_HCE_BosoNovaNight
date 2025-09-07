@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Models & Science Communication – Hubert Huho</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation bar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index.html">Hubert Huho</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="photonics.html">Photonics</a></li>
+          <li><a href="biomineralization.html">Biomineralization</a></li>
+          <li><a href="mentalmodels.html" class="active">Mental Models</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="content">
+    <div class="container">
+      <h1>Mental Models & Science Communication</h1>
+      <p>
+        One of my life goals is to build bridges between advanced science and the curious mind.  When I learned physics as a 14‑year‑old,
+        the obstacles weren’t just equations — they were visual.  A professor’s chalkboard often contains symbols inaccessible to a
+        newcomer.  Yet a well‑chosen diagram can illuminate a concept instantly.  On this page I reflect on two influences who shaped
+        my thinking about visual language in science and propose a new way to picture Floquet theory.
+      </p>
+
+      <h2>Kaća Bradonjić: physics through metaphor</h2>
+      <p>
+        Kaća Bradonjić is an Associate Professor of Physics and Director of Assessment at Hampshire College.  She holds a B.S. in
+        philosophy and physics and earned her Ph.D. at Boston University.  Her research sits at the intersection of physics and
+        philosophy: she investigates gauge theories of gravity and explores the physical interpretation of conformal and projective
+        structures<sup><a href="#footnote-1">[1]</a></sup>.  Beyond the mathematics she uses artistic metaphor — such as drawings and storytelling — to
+        probe the relation between physical, intellectual and emotional spaces<sup><a href="#footnote-1">[1]</a></sup>.  Bradonjić’s work reminds me that
+        a mental model isn’t just a picture; it’s a lens that connects different ways of knowing.
+      </p>
+
+      <h2>Feynman diagrams and breaking down the abstract</h2>
+      <figure class="figure">
+        <img src="2a186fd2-34ff-4758-96b6-79f49ae0fd18.png" alt="Abstract network inspired by Feynman diagrams" />
+        <figcaption>
+          An abstract network motif inspired by Feynman diagrams, illustrating interactions between particles.
+        </figcaption>
+      </figure>
+      <p>
+        Richard Feynman introduced his eponymous diagrams in the late 1940s as a way of turning complicated mathematical integrals into
+        simple pictures.  In high‑energy physics these diagrams depict subatomic particles as lines that join and split at vertices,
+        encapsulating equations of quantum field theory in strokes of chalk.  Historian David Kaiser notes that by the mid‑20th
+        century physicists increasingly used them; they revolutionized theoretical physics and inspired new techniques in solid‑state
+        physics<sup><a href="#footnote-2">[2]</a></sup>.  Nobel laureate Frank Wilczek remarked that his prize‑winning work would have been
+        “unthinkable without them”<sup><a href="#footnote-2">[2]</a></sup>.  To me, Feynman’s great skill was not just in computing amplitudes but in
+        breaking down a field dense with equations into pictures that anyone, including my 14‑year‑old self, could tinker with.
+      </p>
+
+      <h2>Dreaming up new visuals</h2>
+      <p>
+        With these examples in mind, I want to contribute my own simple mental model.  Floquet theory deals with systems driven
+        periodically in time.  Mathematically, a time‑periodic Hamiltonian acquires an extra dimension: energy levels repeat every
+        “photon” of the driving frequency, forming an infinite ladder of replicas.  It’s like a spiral staircase where each floor is
+        identical.  To visualize this, I drew an interactive helix: the vertical axis is the quasienergy, the circles are the repeated
+        bands, and a moving dot traces how a state winds through these replicas.  You can play with the animation below.  I hope that
+        for a young student it demystifies an abstract theory by presenting it as something tangible and fun.
+      </p>
+
+      <!-- Interactive Floquet visual -->
+      <canvas id="floquetCanvas"></canvas>
+      <p style="text-align:center; font-size:0.9rem; color:var(--muted-text);">
+        A simple helix illustrating Floquet replicas: each circle represents one “Floquet zone” and the moving dot shows how a
+        periodically driven system explores these zones.
+      </p>
+
+      <!-- Footnotes -->
+      <hr style="margin-top:3rem;" />
+      <ol class="footnotes">
+        <li id="footnote-1">Kaća Bradonjić’s work at the intersection of physics and philosophy and her use of artistic metaphor. Source: <a href="https://www.hampshire.edu/academics/faculty/kaca-bradonjic" target="_blank">Hampshire College</a>.</li>
+        <li id="footnote-2">Feynman diagrams transform complicated integrals into simple pictures and revolutionized theoretical physics. Source: <a href="https://en.wikipedia.org/wiki/Feynman_diagram" target="_blank">Wikipedia</a>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hubert Huho. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="floquet-visual.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photonics & Floquet Modes – Hubert Huho</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation bar reused from home page -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index.html">Hubert Huho</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="photonics.html" class="active">Photonics</a></li>
+          <li><a href="biomineralization.html">Biomineralization</a></li>
+          <li><a href="mentalmodels.html">Mental Models</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="content">
+    <div class="container">
+      <h1>Photonics & Floquet Modes</h1>
+      <p>
+        Photonics is the science of controlling light.  Instead of wiring electrons around a circuit, you guide photons through engineered
+        structures.  This page explores my fascination with photonic cavities, orbital angular momentum (OAM) and the way periodic driving can
+        create exotic resonances known as <em>Floquet modes</em>.  The simulations below were performed using the MEEP finite‑difference time‑domain
+        (FDTD) package and run on a GPU.
+      </p>
+
+      <!-- Simulation images -->
+      <figure class="figure">
+        <img src="Hubert_Huho_RotCylinder(OAM)_Ez_Final_Time.png" alt="Ez field distribution at final time" />
+        <figcaption>
+          Final snapshot of the out‑of‑plane electric field (<strong>Ez</strong>).  The swirling “petal” pattern is a signature of light carrying
+          orbital angular momentum inside the cylindrical cavity.
+        </figcaption>
+      </figure>
+
+      <h2>The Floquet cylinder simulation</h2>
+      <p>
+        The geometry we modelled is simple: a dielectric cylinder of radius ≈2 and height ≈6 (in MEEP units) with relative permittivity
+        ε≈12.25 surrounded by a vacuum cladding.  Inside the cavity a ring of tiny sources rotates about the central axis.  Each point source
+        emits at the same frequency but with a progressive phase, giving the overall field a helical twist.  Perfectly matched layers (PML)
+        surround the computational domain to absorb outgoing radiation and avoid artificial reflections.  By monitoring the <strong>Ez</strong>
+        component of the electric field over ~60 simulation units, we observe standing‑wave patterns and interference fringes characteristic
+        of Floquet resonances and OAM modes.
+      </p>
+
+      <figure class="figure">
+        <img src="Hubert_Huho_RotCylinder(OAM)_Ez_contours.png" alt="Dielectric boundary and Ez contours" />
+        <figcaption>
+          The dielectric cavity boundary (white circle) overlaid with contours of <strong>Ez</strong> (orange).  Concentric and azimuthal
+          nodal lines reveal the resonant structure and hint at the higher‑order harmonics excited by the rotating sources.
+        </figcaption>
+      </figure>
+
+      <h2>Why this is technically cool</h2>
+      <p>
+        Periodically driving an optical cavity leads to <em>Floquet engineering</em>, where the natural modes of a system hybridize with the
+        driving frequency.  By launching twisted light into the cavity we generated modes carrying orbital angular momentum — these “vortex”
+        beams are important in quantum communication and high‑dimensional encoding.  Running the simulation on a GPU using MEEP demonstrates
+        that high‑resolution 3D photonic problems can be tackled on modest hardware.  Building the rotating sources required customizing MEEP’s
+        source objects and taught me how to translate physical intuition into code.
+      </p>
+
+      <h2>From simulation to devices</h2>
+      <p>
+        Beyond this toy model lies a technological revolution.  Integrated photonic circuits promise to replace energy‑hungry data links with
+        optical waveguides.  Researchers describe photonics integrated with electronics as “the transistor for the 21st century.”  One of the
+        biggest challenges is packaging: optical fibres have cores around 10 µm across, whereas photonic waveguides on a chip are only
+        hundreds of nanometres wide.  Aligning these two components currently requires expensive active alignment under a microscope.
+        Engineers at MIT’s FUTUR‑IC project recently developed a new <em>evanescent coupler</em> that provides extra alignment tolerance so
+        robots can assemble devices passively; it even allows vertical light transfer between stacked chips<sup><a href="#footnote-1">[1]</a></sup>.
+        Simulations like the one above give me a microscopic view of how confined light behaves and motivate my interest in studying
+        optoelectronics, an area I’m currently auditing through a university class.
+      </p>
+
+      <h2>Interactive cylinder</h2>
+      <p>
+        To make this picture more tangible I built a simple 3D model of the dielectric cavity and rotating source ring.  You can drag to
+        rotate the scene and watch the points spin.  While far from a full solver, it conveys how a rotating pattern injects angular
+        momentum into a symmetric cavity.
+      </p>
+      <div id="cylinder-viewer" style="width:100%; height:400px;"></div>
+
+      <!-- Footnotes for citations -->
+      <hr style="margin-top:3rem;" />
+      <ol class="footnotes">
+        <li id="footnote-1">MIT’s FUTUR‑IC packaging project: integration of photonics and electronics, challenges of fibre alignment and a new evanescent coupler. Source: <a href="https://optics.org/news/16/8/2" target="_blank">optics.org</a>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hubert Huho. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

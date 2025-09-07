@@ -1,0 +1,336 @@
+/*
+  Stylesheet for Hubert Huho’s personal passion site.
+  This file defines a clean, modern layout with a cohesive color palette,
+  responsive cards and sections, and typography optimized for readability.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Root variables for easy color management */
+:root {
+  --primary-color: #2952a3;    /* deep blue for headings and links */
+  --secondary-color: #728cca;  /* softer blue for gradients */
+  --accent-color: #f5a623;     /* warm orange accent for call‑to‑action */
+  --dark-bg: #0d1b2a;          /* navy background for navigation/footer */
+  --light-bg: #f6f8fb;        /* off‑white background for sections */
+  --text-color: #2c3e50;      /* dark slate for body text */
+  --muted-text: #596c80;      /* muted grey for secondary text */
+}
+
+/* Base element resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  background: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container to center content */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation bar */
+.navbar {
+  background: var(--dark-bg);
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #c5d7e8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  padding: 4rem 0 5rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.cta-btn {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+  background: #d4881a;
+  transform: translateY(-2px);
+}
+
+/* About Section */
+.about {
+  padding: 3rem 0;
+  background: var(--light-bg);
+}
+
+.about-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1 1 45%;
+}
+
+.about-text h3 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  color: var(--muted-text);
+  font-size: 1.05rem;
+}
+
+.about-image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.about-image img {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Passions Overview */
+.passions {
+  padding: 3rem 0;
+}
+
+.passions h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  width: calc(33% - 2rem);
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+}
+
+.card h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem;
+}
+
+.card p {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  color: var(--muted-text);
+  font-size: 0.97rem;
+  line-height: 1.5;
+}
+
+.card-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.card-link:hover {
+  border-color: var(--primary-color);
+}
+
+/* Content pages (photonics, biomineralization, mental models) */
+.content {
+  padding: 3rem 0;
+}
+
+.content h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.content p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--muted-text);
+  line-height: 1.7;
+}
+
+.content img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+.figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+.figure figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  font-style: italic;
+}
+
+/* Floquet visual canvas on mental models page */
+#floquetCanvas {
+  background: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  display: block;
+  margin: 1rem auto;
+  max-width: 500px;
+  width: 100%;
+  height: 300px;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-bg);
+  color: #c5d7e8;
+  text-align: center;
+  padding: 1.2rem 0;
+  margin-top: 3rem;
+}
+
+footer p {
+  font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .card {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-flex {
+    flex-direction: column;
+  }
+  .about-text, .about-image {
+    flex: 1 1 100%;
+  }
+  .cards {
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+  }
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
